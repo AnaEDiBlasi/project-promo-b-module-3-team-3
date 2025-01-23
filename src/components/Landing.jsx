@@ -1,9 +1,11 @@
 import '../styles/App.scss';
+import adalab from '../images/adalab.png';
 
 
 function Landing () {
     return (
-        <>        
+        <> 
+        <div className="container">      
         <header className="header">
         <a href="./">
           <div className="header_left">
@@ -12,7 +14,7 @@ function Landing () {
           </div>
         </a>
         <img className="header_logo"
-          src="./images/adalab.png"
+          src={adalab}
           alt="Logo Adalab"/>
       </header>
       <main className="main">
@@ -96,8 +98,9 @@ function Landing () {
         </section>
       </main>
       <footer className="footer"><img className="footer_img"
-          src="./images/adalab.png"
-          alt=""/></footer>
+          src={adalab}
+          alt="Logo Adalab"/></footer>
+          </div> 
     </>
     );
 
