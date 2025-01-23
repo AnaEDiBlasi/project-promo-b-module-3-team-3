@@ -6,8 +6,7 @@ import laptop from '../images/laptop-code-solid.svg';
 import { useState } from 'react';
 //import github from '../images/icons/github.svg';
 //import globe from '../images/icons/globe-solid.svg';
-
-
+ 
 function App() {
   const [name, setName] = useState (""); 
   const [slogan, setSlogan] = useState ("");
@@ -32,11 +31,11 @@ const handleChangeInput = (ev) =>{
   setRepo (value);
   } else if (input === "demo") {
   setDemo (value);
-  }else if (input === "desc") {
+  } else if (input === "desc") {
   setDesc (value);
-  }else if (input === "autor") {
+  } else if (input === "autor") {
   setAutor (value);
-  }else {
+  } else {
   setJob (value);
   }
  }
