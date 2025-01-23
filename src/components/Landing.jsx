@@ -26,7 +26,7 @@ function Landing () {
           <button className="linkProject_project-btn">Ver Proyectos</button> 
         </a>
         <section className="preview">
-          <div className="preview_image" style="background-image: url('./images/project.jpg');"></div>
+          <div className="preview_image" style={{backgroundImage: "url('./images/project.jpg')"}}></div>
           <article className="preview_autor">
             <section className="infoProject">
               <div className="infoProject_container">
@@ -47,7 +47,7 @@ function Landing () {
               </section>
             </section>
             <section className="infoAutor">
-              <div className="infoAutor_image" style="background-image: url({&quot;/assets/avatar-a91e8c67.png&quot;});"></div>
+              <div className="infoAutor_image" style={{backgroundImage: "url('/assets/avatar-a91e8c67.png')"}}></div>
               <p className="infoAutor_job">Full Stack Developer</p>
               <p className="infoAutor_name">Emmelie Björklund</p><button className="btn"></button>
             </section>
