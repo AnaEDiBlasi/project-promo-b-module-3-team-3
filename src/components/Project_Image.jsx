@@ -1,8 +1,8 @@
 import '../styles/App.scss';
 
-function Project_Image() {
+function Project_Image(props) {
   return (
-    <div className="projectImage">{formData.photo}</div>
+    <div className="projectImage">{props.photoUrl}</div>
   )
 }
 

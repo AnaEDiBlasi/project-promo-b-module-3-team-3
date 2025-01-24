@@ -2,7 +2,7 @@ import '../styles/App.scss';
 import Form from './Form';
 import Preview from './Preview';
 
-function Main() {
+function Main(props) {
   return (
     <main className="main">
   <section className="hero">
@@ -11,7 +11,7 @@ function Main() {
     <a className="button--link" href="./">Ver proyectos</a>
   </section>
 
- <Preview/>
+ <Preview data = {props.data}/>
  <Form/>
 
 </main>

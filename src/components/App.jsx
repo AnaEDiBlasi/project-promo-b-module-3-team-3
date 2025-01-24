@@ -52,7 +52,7 @@ const handleChangeInput = (ev) =>{
 
     <Header/>
 
-    <Main/>
+    <Main  data = {formData}/>
 
     <Footer/>
 
