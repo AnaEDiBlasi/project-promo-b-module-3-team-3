@@ -8,36 +8,42 @@ import { useState } from 'react';
 //import globe from '../images/icons/globe-solid.svg';
  
 function App() {
-  const [name, setName] = useState (""); 
-  const [slogan, setSlogan] = useState ("");
-  const [technologies, setTechnologies] = useState ("");
-  const [repo, setRepo] = useState ("");
-  const [demo, setDemo] = useState ("");
-  const [desc, setDesc] = useState ("");
-  const [autor, setAutor] = useState ("");
-  const [job, setJob] = useState ("");
+ const [formData, setFormData] = useState({
+  name: "",
+  slogan: "",
+  technologies: "",
+  repo: "",
+  demo: "",
+  desc: "",
+  autor: "",
+  job: "",
+  image: "",
+  photo: ""
+ })
+
+
 
 const handleChangeInput = (ev) =>{
   const input = ev.target.id;
   const value = ev.target.value;
 
-  if (input === "name") {
-    setName (value);
-  } else if (input === "slogan") {
-    setSlogan (value);
-  } else if (input === "technologies") {
-    setTechnologies (value);
-  } else if (input === "repo") {
-  setRepo (value);
-  } else if (input === "demo") {
-  setDemo (value);
-  } else if (input === "desc") {
-  setDesc (value);
-  } else if (input === "autor") {
-  setAutor (value);
-  } else {
-  setJob (value);
-  }
+  // if (input === "name") {
+  //   setName (value);
+  // } else if (input === "slogan") {
+  //   setSlogan (value);
+  // } else if (input === "technologies") {
+  //   setTechnologies (value);
+  // } else if (input === "repo") {
+  // setRepo (value);
+  // } else if (input === "demo") {
+  // setDemo (value);
+  // } else if (input === "desc") {
+  // setDesc (value);
+  // } else if (input === "autor") {
+  // setAutor (value);
+  // } else {
+  // setJob (value);
+  // }
  }
   return (
     <>
@@ -59,32 +65,32 @@ const handleChangeInput = (ev) =>{
   </section>
 
   <section className="preview">
-    <div className="projectImage"></div>
+    <div className="projectImage">{formData.photo}</div>
     
     {/* CARD PREVIEW */}
     <article className="card">
       <h2 className="card__projectTitle"><span className="card__projectTitle--text">Personal project card</span></h2>
 
       <div className="card__author">
-        <div className="card__authorPhoto"></div>
-        <p className="card__job"> {job || "Full stack Developer"}
+        <div className="card__authorPhoto">{formData.image}</div>
+        <p className="card__job"> {formData.job || "Full stack Developer"}
         
         </p>
-        <h3 className="card__name"> {autor ||"Emmelie Bjôrklund"}</h3>
+        <h3 className="card__name"> {formData.autor ||"Emmelie Bjôrklund"}</h3>
       </div>
   
       <div className="card__project">            
-        <h3 className="card__name">{name || "Elegant Workspace"}</h3>
-        <p className="card__slogan"> {slogan || "Diseños Exclusivos"}</p>
+        <h3 className="card__name">{formData.name || "Elegant Workspace"}</h3>
+        <p className="card__slogan"> {formData.slogan || "Diseños Exclusivos"}</p>
         <h3 className="card__descriptionTitle">Product description</h3>
-        <p className="card__description"> {desc||"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione"}</p>
+        <p className="card__description"> {formData.desc||"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla, quos? Itaque, molestias eveniet laudantium adipisci vitae ratione"}</p>
 
         <div className="card__technicalInfo">
-          <p className="card__technologies"> {technologies || "React JS - HTML - CSS"}</p>
+          <p className="card__technologies"> {formData.technologies || "React JS - HTML - CSS"}</p>
       
-          <a className="icon icon__www" href={demo || "#" } title="Haz click para ver el proyecto online"> Web link
+          <a className="icon icon__www" href={formData.demo || "#" } title="Haz click para ver el proyecto online"> Web link
           </a>
-          <a className="icon icon__github" href= {repo || "#" } title="Haz click para ver el código del proyecto">GitHub link
+          <a className="icon icon__github" href= {formData.repo || "#" } title="Haz click para ver el código del proyecto">GitHub link
           </a>
         </div>
       </div>
