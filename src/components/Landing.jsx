@@ -87,8 +87,8 @@ function Landing () {
           </fieldset>
           <section className="form_btn">
             <div className="form_btn-first"><label className="form_btn-first-upload">Subir foto del proyecto<input type="file"
-                  style="display: none;"/></label><label className="form_btn-first-upload">Subir foto de la autora<input
-                  type="file" style="display: none;"/></label></div>
+                  /*style="display: none;"*//></label><label className="form_btn-first-upload">Subir foto de la autora<input
+                  type="file" /*style="display: none;"*//></label></div>
             <p className="error"></p>
             <p className="error"></p>
             <div><button className="form_btn-create">Crear Tarjeta</button></div>
