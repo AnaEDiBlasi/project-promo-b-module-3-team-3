@@ -1,4 +1,5 @@
 import '../styles/App.scss';
+import Btn_Photo from './Btn_Photo';
 
 function Form() {
   return (
@@ -23,10 +24,10 @@ function Form() {
     </fieldset>
 
     <fieldset className="addForm__group--upload">
-      <label htmlFor="image" className="button">Subir foto del proyecto</label>
-      <input className="addForm__hidden" type="file" name="image" id="image"/>
-      <label htmlFor="photo" className="button">Subir foto de la autora</label>
-      <input className="addForm__hidden" type="file" name="photo" id="photo"/>
+      <Btn_Photo  htmlFor="image" name="image" text="Subir foto del proyecto" id= "image"/>
+
+      <Btn_Photo  htmlFor="photo" name="photo" text="Subir foto de la autora" id= "photo"/>
+
       <button className="button--large">Guardar proyecto</button>
     </fieldset>
     
