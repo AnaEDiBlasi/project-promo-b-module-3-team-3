@@ -1,4 +1,4 @@
-import '../styles/App.scss';
+import '../styles/Landing.scss';
 import adalab from '../images/adalab.png';
 import Header from './Header';
 import Footer from './Footer';
