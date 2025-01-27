@@ -48,7 +48,7 @@ function Main() {
     <a className="button--link" href="./">Ver proyectos</a>
   </section>
 
- {/* <Preview formData = {formData}/> */}
+ <Preview formData = {formData}/>
  <Form changeFormData = {changeFormData} />
  
 
