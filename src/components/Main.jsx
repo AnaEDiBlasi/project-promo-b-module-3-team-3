@@ -1,8 +1,45 @@
 import '../styles/App.scss';
 import Form from './Form';
 import Preview from './Preview';
+import { useState } from 'react';
 
-function Main(props) {
+function Main() {
+  const [formData, setFormData] = useState({
+    name: "",
+    slogan: "",
+    technologies: "",
+    repo: "",
+    demo: "",
+    desc: "",
+    autor: "",
+    job: "",
+    image: "",
+    photo: ""
+   })
+
+   
+  const changeFormData = (input, value) =>{
+    if (input === "name") {
+      setFormData ({...formData, name: value});
+    } else if (input === "slogan") {
+      setFormData ({...formData, slogan: value});
+    } else if (input === "technologies") {
+      setFormData ({...formData, technologies: value});
+    } else if (input === "repo") {
+      setFormData ({...formData, repo: value});
+    } else if (input === "demo") {
+      setFormData ({...formData, demo: value});
+    } else if (input === "desc") {
+      setFormData ({...formData, desc: value});
+    } else if (input === "autor") {
+      setFormData ({...formData, autor: value});
+    } else {
+      setFormData ({...formData, job: value});
+    }
+   }
+
+   
+
   return (
     <main className="main">
   <section className="hero">
@@ -11,8 +48,9 @@ function Main(props) {
     <a className="button--link" href="./">Ver proyectos</a>
   </section>
 
- <Preview data = {props.data}/>
- <Form/>
+ {/* <Preview formData = {formData}/> */}
+ <Form changeFormData = {changeFormData} />
+ 
 
 </main>
   )

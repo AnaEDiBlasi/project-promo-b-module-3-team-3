@@ -1,7 +1,13 @@
 import '../styles/App.scss';
 import Btn_Photo from './Btn_Photo';
 
-function Form() {
+function Form(props) {
+  const handleChangeInput = (ev) =>{
+    const input = ev.target.id;
+    const value = ev.target.value;
+    props.changeFormData(input, value);
+  }
+
   return (
     <form className="addForm">
     <h2 className="title">Información</h2>
