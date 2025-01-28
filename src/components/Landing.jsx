@@ -3,6 +3,9 @@ import adalab from '../images/adalab.png';
 import Header from './Header';
 import Footer from './Footer';
 import Card from './Card';
+import App from './App';
+import { Link } from 'react-router-dom'
+
 
 function Landing () {
     const formData = {
@@ -28,12 +31,13 @@ function Landing () {
           <h1 className="intro_title">Proyectos molones</h1>
           <p className="intro_text">Escaparate en línea para recoger ideas a través de la tecnología.</p>
         </section>
-        <a className="linkProject" href="#/">
-          <button className="linkProject_project-btn">NUEVO PROYECTO</button> 
-        </a>
-        <section className="preview">
+        <a className="linkProject" href="">NUEVO PROYECTO</a>
+        {/* <a className="linkProject"><Link to={"./Dashboard"}>NUEVO PROYECTO</Link></a>
+        <Link className="linkProject" to={"./Dashboard"}>NUEVO PROYECTO</Link> */}
+        
+        <section className="previewLanding">
           <Card formData = {formData}/>
-          {/* <Card/> */}
+          <Card formData = {formData}/>
         </section>
         
       </main>
