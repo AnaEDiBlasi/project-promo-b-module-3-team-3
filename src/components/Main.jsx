@@ -19,23 +19,28 @@ function Main() {
 
    
   const changeFormData = (input, value) =>{
-    if (input === "name") {
-      setFormData ({...formData, name: value});
-    } else if (input === "slogan") {
-      setFormData ({...formData, slogan: value});
-    } else if (input === "technologies") {
-      setFormData ({...formData, technologies: value});
-    } else if (input === "repo") {
-      setFormData ({...formData, repo: value});
-    } else if (input === "demo") {
-      setFormData ({...formData, demo: value});
-    } else if (input === "desc") {
-      setFormData ({...formData, desc: value});
-    } else if (input === "autor") {
-      setFormData ({...formData, autor: value});
-    } else {
-      setFormData ({...formData, job: value});
-    }
+    //formData.name = value;
+    //formData[input] = value; //input hace referencia a todas las propiedades de formData
+    // esto funciona porque input es el mismo nombre que la propiedad
+    setFormData({...formData, [input]: value})
+
+    // if (input === "name") {
+    //   setFormData ({...formData, name: value});
+    // } else if (input === "slogan") {
+    //   setFormData ({...formData, slogan: value});
+    // } else if (input === "technologies") {
+    //   setFormData ({...formData, technologies: value});
+    // } else if (input === "repo") {
+    //   setFormData ({...formData, repo: value});
+    // } else if (input === "demo") {
+    //   setFormData ({...formData, demo: value});
+    // } else if (input === "desc") {
+    //   setFormData ({...formData, desc: value});
+    // } else if (input === "autor") {
+    //   setFormData ({...formData, autor: value});
+    // } else {
+    //   setFormData ({...formData, job: value});
+    // }
    }
 
    

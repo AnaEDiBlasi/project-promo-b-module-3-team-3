@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Card from './Card';
 import App from './App';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 
 function Landing () {
