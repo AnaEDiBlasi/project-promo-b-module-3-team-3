@@ -2,7 +2,10 @@ import '../styles/App.scss';
 
 function Project_Image(props) {
   return (
-    <div className="projectImage">{props.photoUrl}</div>
+    <div className="projectImage">
+      <img className="projectImage" src={props.photoUrl}/>
+    </div>
+    
   )
 }
 

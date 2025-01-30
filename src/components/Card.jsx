@@ -6,7 +6,9 @@ function Card(props) {
     <h2 className="card__projectTitle"><span className="card__projectTitle--text">Personal project card</span></h2>
 
     <div className="card__author">
-      <div className="card__authorPhoto">{props.formData.image}</div>
+      <div className="card__authorPhoto">
+        <img className="card__authorPhoto" src={props.formData.photo}/>
+      </div>
       <p className="card__job"> {props.formData.job || "Full stack Developer"}
       
       </p>

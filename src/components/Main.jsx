@@ -17,6 +17,9 @@ function Main() {
     photo: ""
    })
 
+   const updateAvatar = (urlImage, id) => {
+    setFormData({...formData, [id]: urlImage});
+   }
    
   const changeFormData = (input, value) =>{
     //formData.name = value;
@@ -54,7 +57,7 @@ function Main() {
   </section>
 
  <Preview formData = {formData}/>
- <Form changeFormData = {changeFormData} />
+ <Form changeFormData = {changeFormData} updateAvatar={updateAvatar}/>
  
 
 </main>
