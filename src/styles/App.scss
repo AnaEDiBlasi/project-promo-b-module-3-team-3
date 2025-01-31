@@ -131,7 +131,7 @@ fieldset {
   aspect-ratio: 1 / 1;
   outline: solid 1px pink;
 
-  background-image: url('../images/ebook-example.jpg');
+  // background-image: url('../images/ebook-example.jpg');
   background-position: top center;
   background-size: cover;
 }
@@ -201,7 +201,6 @@ fieldset {
   width: 75px;
   height: 75px;
   border-radius: 50%;
-  background-image: url('../images/avatar.webp');
   background-position: center;
   background-size: cover;
   margin-bottom: 0.8rem;

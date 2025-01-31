@@ -2,6 +2,9 @@ import '../styles/App.scss';
 import Form from './Form';
 import Preview from './Preview';
 import { useState } from 'react';
+import ebookExample from '../images/ebook-example.jpg';
+import avatar from '../images/avatar.webp';
+
 
 function Main() {
   const [formData, setFormData] = useState({
@@ -13,8 +16,8 @@ function Main() {
     desc: "",
     autor: "",
     job: "",
-    image: "",
-    photo: ""
+    image: ebookExample,
+    photo: avatar
    })
 
    const updateAvatar = (urlImage, id) => {

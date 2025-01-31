@@ -17,7 +17,7 @@ function Landing () {
       desc: "",
       autor: "",
       job: "",
-      image: "",
+      image: '../images/ebook-example.jpg',
       photo: ""
     }
 

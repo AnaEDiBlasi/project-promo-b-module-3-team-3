@@ -6,7 +6,7 @@ function Preview(props) {
   return (
     <section className="preview">
    
-    <Project_Image photoUrl = {props.formData.image} />
+    <Project_Image image = {props.formData.image} />
     <Card formData = {props.formData}/>
     
   </section>
