@@ -1,5 +1,6 @@
 import '../styles/App.scss';
 import Btn_Photo from './Btn_Photo';
+import api from "../services/api";
 
 function Form(props) {
   const handleChangeInput = (ev) =>{
@@ -7,6 +8,19 @@ function Form(props) {
     const value = ev.target.value;
     props.changeFormData(input, value);
   }
+
+const handleClick = (ev) => {
+  ev.preventDefault ();
+  api (props.formData)
+  .then ((resp) => {
+    props.setProjectUrl (resp.cardURL);
+    console.log (resp)
+
+  } )
+ 
+
+}
+
 
   return (
     <form className="addForm">
@@ -34,7 +48,8 @@ function Form(props) {
 
       <Btn_Photo  htmlFor="photo" name="photo" text="Subir foto de la autora" id= "photo" updateAvatar={props.updateAvatar}/>
 
-      <button className="button--large">Guardar proyecto</button>
+      <button className="button--large" onClick={handleClick} >Crear proyecto</button>
+      {props.projectUrl ? <a href= {props.projectUrl}>Ver tarjeta</a> : null }
     </fieldset>
     
   </form>

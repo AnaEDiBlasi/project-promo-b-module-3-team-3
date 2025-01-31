@@ -4,9 +4,13 @@ import Preview from './Preview';
 import { useState } from 'react';
 import ebookExample from '../images/ebook-example.jpg';
 import avatar from '../images/avatar.webp';
+import api from "../services/api";
+
+
 
 
 function Main() {
+  const [ projectUrl, setProjectUrl] = useState ("");
   const [formData, setFormData] = useState({
     name: "",
     slogan: "",
@@ -60,7 +64,7 @@ function Main() {
   </section>
 
  <Preview formData = {formData}/>
- <Form changeFormData = {changeFormData} updateAvatar={updateAvatar}/>
+ <Form changeFormData = {changeFormData} updateAvatar={updateAvatar} formData = {formData} projectUrl = {projectUrl} setProjectUrl = {setProjectUrl}/>
  
 
 </main>
