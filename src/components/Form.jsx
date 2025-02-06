@@ -15,10 +15,7 @@ const handleClick = (ev) => {
   .then ((resp) => {
     props.setProjectUrl (resp.cardURL);
     console.log (resp)
-
-  } )
- 
-
+  })
 }
 
 

@@ -6,9 +6,6 @@ import ebookExample from '../images/ebook-example.jpg';
 import avatar from '../images/avatar.webp';
 import api from "../services/api";
 
-
-
-
 function Main() {
   const [ projectUrl, setProjectUrl] = useState ("");
   const [formData, setFormData] = useState({

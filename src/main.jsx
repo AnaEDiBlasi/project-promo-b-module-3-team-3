@@ -1,10 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './components/App.jsx'
-// import Landing from './components/Landing.jsx'
+import { HashRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App /> 
-    {/* <Landing/> */}
+    <HashRouter>
+      <App /> 
+    </HashRouter>
   </StrictMode>)

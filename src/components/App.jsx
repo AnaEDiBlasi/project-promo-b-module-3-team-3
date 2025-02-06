@@ -1,29 +1,24 @@
 import '../styles/App.scss';
-//import avatar from '../images/avatar.webp';
-//import ebook from '../images/ebook-example.jpg';
-
 import Header from './Header';
 import Footer from './Footer';
 import Main from './Main';
-//import github from '../images/icons/github.svg';
-//import globe from '../images/icons/globe-solid.svg';
+import Landing from './Landing';
+import { Route, Routes } from 'react-router-dom';
  
 function App() {
  
   return (
     <>
-     <div className="container">
-
-    <Header/>
-
-    <Main/>
-
-    <Footer/>
-
-   </div>
+    <div className="container">
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Landing/>}/>
+        <Route path="/form" element={<Main/>}/>
+      </Routes>
+      <Footer/>
+    </div>
     </>
   );
 }
-
 
 export default App;
