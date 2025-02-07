@@ -1,11 +1,11 @@
-import '../styles/App.scss';
+import '../../../styles/App.scss';
 import Card from './Card';
 import Project_Image from './Project_Image';
 
 function Preview(props) {
   return (
     <section className="preview">
-   
+      
     <Project_Image image = {props.formData.image} />
     <Card formData = {props.formData}/>
     

@@ -1,6 +1,7 @@
 import '../styles/Landing.scss';
 import adalab from '../images/adalab.png';
-import Card from './Card';
+import avatar from '../images/avatar.webp';
+import Card from './main/preview/Card';
 import { Link } from 'react-router-dom';
 
 function Landing () {
@@ -13,8 +14,8 @@ function Landing () {
       desc: "",
       autor: "",
       job: "",
-      image: "",
-      photo: "src/images/avatar.webp"
+      image: adalab,
+      photo: avatar,
     }
 
     return (

@@ -1,8 +1,11 @@
-import '../styles/App.scss';
+import '../../../styles/App.scss';
 import Btn_Photo from './Btn_Photo';
-import api from "../services/api";
+import api from "../../../services/api";
+import { useState } from 'react';
 
 function Form(props) {
+  const [error, setError] = useState("");
+
   const handleChangeInput = (ev) =>{
     const input = ev.target.id;
     const value = ev.target.value;
@@ -11,12 +14,21 @@ function Form(props) {
 
 const handleClick = (ev) => {
   ev.preventDefault ();
+  if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
+    setError("Por favor, completa los campos obligatorios.");
+    return;
+  }
+
+  setError("");
+
   api (props.formData)
   .then ((resp) => {
     props.setProjectUrl (resp.cardURL);
-    console.log (resp)
-  })
-}
+   })
+  .catch((err) => {
+    setError("Hubo un error al crear el proyecto. Inténtalo de nuevo.");
+  });
+};
 
 
   return (
