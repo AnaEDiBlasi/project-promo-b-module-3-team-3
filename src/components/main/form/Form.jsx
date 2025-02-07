@@ -1,39 +1,56 @@
 import '../../../styles/App.scss';
 import Btn_Photo from './Btn_Photo';
 import api from "../../../services/api";
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 function Form(props) {
-  const [error, setError] = useState("");
+  const [localError, setLocalError] = useState(""); // Estado local para el error
+  const [isLoading, setIsLoading] = useState(false); // Estado para la carga
 
+  useEffect(() => {
+    setLocalError(props.error); // Sincroniza el error local con el prop error
+  }, [props.error]); // Se ejecuta cuando cambia props.error
+ 
   const handleChangeInput = (ev) =>{
     const input = ev.target.id;
     const value = ev.target.value;
     props.changeFormData(input, value);
+    setLocalError(""); // Limpia el error al escribir
   }
 
 const handleClick = (ev) => {
   ev.preventDefault ();
   if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
-    setError("Por favor, completa los campos obligatorios.");
+    setLocalError("Por favor, completa todos los campos obligatorios."); 
+ 
     return;
-  }
 
-  setError("");
+  }
+  
+
+  setLocalError(""); // Limpia el error si la validación pasa
+  setIsLoading(true); // Indica que la llamada está en curso
 
   api (props.formData)
   .then ((resp) => {
     props.setProjectUrl (resp.cardURL);
    })
-  .catch((err) => {
-    setError("Hubo un error al crear el proyecto. Inténtalo de nuevo.");
+   .catch((err) => {
+    console.error("Error al crear el proyecto:", err);
+    setLocalError("Hubo un error al crear el proyecto. Inténtalo de nuevo.");
+  })
+  .finally(() => {
+    setIsLoading(false); // Indica que la llamada ha terminado
   });
+      
 };
 
 
   return (
     <form className="addForm">
     <h2 className="title">Información</h2>
+    
     <fieldset className="addForm__group">
       <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
       <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" onChange={handleChangeInput}/>
@@ -53,12 +70,24 @@ const handleClick = (ev) => {
     </fieldset>
 
     <fieldset className="addForm__group--upload">
-      <Btn_Photo  htmlFor="image" name="image" text="Subir foto del proyecto" id= "image" updateAvatar={props.updateAvatar}/>
+      <div>
+        <Btn_Photo  htmlFor="image" name="image" text="Subir foto del proyecto" id= "image" updateAvatar={props.updateAvatar}/>
+        <p className="form-message">* Tamaño máximo de las fotos: 25MB</p>
+      </div>
+      <div>
+        <Btn_Photo  htmlFor="photo" name="photo" text="Subir foto de la autora" id= "photo" updateAvatar={props.updateAvatar}/>
+        <p className="form-message">* Tamaño máximo de las fotos: 5MB</p>
+      </div>
 
-      <Btn_Photo  htmlFor="photo" name="photo" text="Subir foto de la autora" id= "photo" updateAvatar={props.updateAvatar}/>
-
-      <button className="button--large" onClick={handleClick} >Crear proyecto</button>
-      {props.projectUrl ? <a href= {props.projectUrl}>Ver tarjeta</a> : null }
+      <button
+          className="button--large"
+          onClick={handleClick}
+          disabled={isLoading || !props.formData.name || !props.formData.repo || !props.formData.demo || !props.formData.autor || !props.formData.desc}
+        >
+          {isLoading ? "Creando..." : "Crear proyecto"}
+        </button>
+        {localError && <p className="error-message">{localError}</p>} {/* Usa localError */}
+        {props.projectUrl && <a href={props.projectUrl}> Ver tarjeta</a>}
     </fieldset>
     
   </form>
