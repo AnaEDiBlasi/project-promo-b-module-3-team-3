@@ -60,8 +60,10 @@ function Main() {
     <a className="button--link" href="./">Ver proyectos</a>
   </section>
 
- <Preview formData = {formData}/>
- <Form changeFormData = {changeFormData} updateAvatar={updateAvatar} formData = {formData} projectUrl = {projectUrl} setProjectUrl = {setProjectUrl}/>
+ <div className='container-card'>
+   <Preview formData = {formData}/>
+   <Form changeFormData = {changeFormData} updateAvatar={updateAvatar} formData = {formData} projectUrl = {projectUrl} setProjectUrl = {setProjectUrl}/>
+ </div>
  
 
 </main>
