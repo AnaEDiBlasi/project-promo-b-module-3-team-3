@@ -124,12 +124,21 @@ fieldset {
   margin-inline: 4rem;
   margin-bottom: 1.8rem;
 }
-
+.preview{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media screen and (min-width: 768px){
+    width: 60%;
+  }
+}
 
 .preview .projectImage {
   width: 100%;
   aspect-ratio: 1 / 1;
   outline: solid 1px pink;
+  object-fit: cover;
+
 
   // background-image: url('../images/ebook-example.jpg');
   background-position: top center;
@@ -140,6 +149,9 @@ fieldset {
   margin-inline: 20px;
 
   transform: translateY(-45px);
+  @media screen and (min-width: 768px){
+    width: 70%;
+  }
 }
 
 .card {
