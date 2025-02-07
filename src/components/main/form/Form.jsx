@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 function Form(props) {
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChangeInput = (ev) =>{
     const input = ev.target.id;
@@ -14,17 +15,20 @@ function Form(props) {
 
 const handleClick = (ev) => {
   ev.preventDefault ();
-  if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
-    setError("Por favor, completa los campos obligatorios.");
-    return;
-  }
-
+  setIsLoading(true);
   setError("");
 
-  api (props.formData)
+   api (props.formData)
   .then ((resp) => {
     props.setProjectUrl (resp.cardURL);
    })
+   .catch((err) => {
+    console.error("Error al crear proyecto:", err);
+    setError("Error al crear proyecto. Inténtalo de nuevo.");
+  })
+  .finally(() => {
+    setIsLoading(false);
+  });
  
 };
 
