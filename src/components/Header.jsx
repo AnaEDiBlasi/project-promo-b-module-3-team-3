@@ -1,4 +1,4 @@
-import '../styles/App.scss';
+import '../styles/Header.scss';
 import adalab from '../images/adalab.png';
 import laptop from '../images/laptop-code-solid.svg';
 import { Link } from 'react-router-dom';

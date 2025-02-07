@@ -67,30 +67,30 @@ fieldset {
 }
 
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-}
+// .header {
+//   display: flex;
+//   justify-content: space-between;
+//   margin-bottom: 2.5rem;
+// }
 
-.header .header__brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 7px 5px;
-  gap: 7px;
-}
+// .header .header__brand {
+//   display: flex;
+//   align-items: center;
+//   text-decoration: none;
+//   padding: 7px 5px;
+//   gap: 7px;
+// }
 
-.header .header__companyLogo {
-  height: 31px;
-  color: var(--color-white);
-}
+// .header .header__companyLogo {
+//   height: 31px;
+//   color: var(--color-white);
+// }
 
-.header .header__title {
-  font: var(--font-title-brand);
-  text-transform: capitalize;
-  color: var(--color-white);
-}
+// .header .header__title {
+//   font: var(--font-title-brand);
+//   text-transform: capitalize;
+//   color: var(--color-white);
+// }
 
 @media screen and (min-width: 768px) {
   .main {
