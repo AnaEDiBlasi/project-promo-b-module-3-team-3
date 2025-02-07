@@ -159,6 +159,11 @@ fieldset {
   background-image: linear-gradient(to bottom, var(--color-white), var(--color-white)), linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
   background-origin: border-box;
   background-clip: content-box, border-box;
+  @media screen and (min-width: 768px){
+    width: 50%;
+ 
+
+  }
 }
 
 .card .card__projectTitle {
