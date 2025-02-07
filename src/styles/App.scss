@@ -1,52 +1,54 @@
+@import './variables.scss';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+
 fieldset {
   border: 0;
 }
 
+// :root {
+
+//   /* COLORS */
+
+//   $color-black: #000000;
+//   $color-black-80: rgba(0, 0, 0, 0.8);
+//   --color-greyish-brown: #505050;
+//   --color-greyish-brown-88: rgba(62, 62, 62, 0.88);
+//   --color-dusk: #403a5f;
+//   --color-greyish-brown-two: #575757;
+//   --color-dark: #302c42;
+//   --color-warm-grey: #909090;
+//   --color-white: #ffffff;
+//   --color-dark-lilac: #8176af;
+//   --color-white-50: rgba(255, 255, 255, 0.5);
+
+
+//   /* FONTS */
+
+//   --font-title-brand: 300 1.4rem 'Poppins', sans-serif;
+//   --font-title-biggest: bold 3rem 'Montserrat', sans-serif;
+//   --font-title-big: bold 2rem 'Montserrat', sans-serif;
+//   --font-title-medium: 300 1.5rem 'Montserrat', sans-serif;
+//   --font-text-big: normal 1.2rem 'Montserrat', sans-serif;
+//   --font-normal: normal 10px 'Montserrat', sans-serif;
+//   --font-button: bold 1rem 'Montserrat', sans-serif;
+//   --font-card-text: 300 .8rem 'Poppins', sans-serif;
+//   --font-card-section: 300 .8rem 'Poppins', sans-serif;
+//   --font-card-title: 500 1.2rem 'Poppins', sans-serif;
+//   --font-card-subtitle: 400 1.1rem 'Poppins', sans-serif;
+//   --font-card-tech: 500 1rem 'Catamaran', sans-serif;
+// }
+
+
+
+
 :root {
-
-  /* COLORS */
-
-  --color-black: #000000;
-  --color-black-80: rgba(0, 0, 0, 0.8);
-  --color-greyish-brown: #505050;
-  --color-greyish-brown-88: rgba(62, 62, 62, 0.88);
-  --color-dusk: #403a5f;
-  --color-greyish-brown-two: #575757;
-  --color-dark: #302c42;
-  --color-warm-grey: #909090;
-  --color-white: #ffffff;
-  --color-dark-lilac: #8176af;
-  --color-white-50: rgba(255, 255, 255, 0.5);
-
-
-  /* FONTS */
-
-  --font-title-brand: 300 1.4rem 'Poppins', sans-serif;
-  --font-title-biggest: bold 3rem 'Montserrat', sans-serif;
-  --font-title-big: bold 2rem 'Montserrat', sans-serif;
-  --font-title-medium: 300 1.5rem 'Montserrat', sans-serif;
-  --font-text-big: normal 1.2rem 'Montserrat', sans-serif;
-  --font-normal: normal 10px 'Montserrat', sans-serif;
-  --font-button: bold 1rem 'Montserrat', sans-serif;
-  --font-card-text: 300 .8rem 'Poppins', sans-serif;
-  --font-card-section: 300 .8rem 'Poppins', sans-serif;
-  --font-card-title: 500 1.2rem 'Poppins', sans-serif;
-  --font-card-subtitle: 400 1.1rem 'Poppins', sans-serif;
-  --font-card-tech: 500 1rem 'Catamaran', sans-serif;
-}
-
-
-
-
-:root {
-  font: var(--font-normal); /* font-size: 10px; */
-  color: var(--color-white);
+  font: $font-normal; /* font-size: 10px; */
+  color: $color-white;
 }
 
 @media screen and (min-width: 420px) {
@@ -63,7 +65,7 @@ fieldset {
 
 .container {
   padding: 22px 22px 0 22px;
-  background-color: var(--color-dark);
+  background-color: $color-dark;
 }
 
 
@@ -83,13 +85,13 @@ fieldset {
 
 // .header .header__companyLogo {
 //   height: 31px;
-//   color: var(--color-white);
+//   color: $color-white;
 // }
 
 // .header .header__title {
-//   font: var(--font-title-brand);
+//   font: $font-title-brand;
 //   text-transform: capitalize;
-//   color: var(--color-white);
+//   color: $color-white;
 // }
 
 @media screen and (min-width: 768px) {
@@ -114,12 +116,12 @@ fieldset {
 }
 
 .hero .title {
-  font: var(--font-title-big);
+  font: $font-title-big;
   margin-bottom: 8px;
 }
 
 .hero .hero__text {
-  font: var(--font-text-big);
+  font: $font-text-big;
   text-align: center;
   margin-inline: 4rem;
   margin-bottom: 1.8rem;
@@ -152,9 +154,6 @@ fieldset {
   aspect-ratio: 1 / 1;
   outline: solid 1px pink;
   object-fit: cover;
-
-
-  // background-image: url('../images/ebook-example.jpg');
   background-position: top center;
   background-size: cover;
 }
@@ -172,17 +171,17 @@ fieldset {
   display: grid;
   grid-template-columns: 40% 60%;
 
-  color: var(--color-black);
-  font: var(--font-card-text);
+  color: $color-black;
+  font: $font-card-text;
 
   border-radius: 20px;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-style: solid;
   border-width: 1px;
-  border-image-source: linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
+  border-image-source: linear-gradient(to bottom, $color-white 0%, rgba(0, 0, 0, 0));
   border-image-slice: 1;
-  background-image: linear-gradient(to bottom, var(--color-white), var(--color-white)), linear-gradient(to bottom, var(--color-white) 0%, rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to bottom, $color-white, $color-white), linear-gradient(to bottom, $color-white 0%, rgba(0, 0, 0, 0));
   background-origin: border-box;
   background-clip: content-box, border-box;
   @media screen and (min-width: 768px){
@@ -199,7 +198,7 @@ fieldset {
   text-align: center;
   text-transform: capitalize;
 
-  font: var(--font-card-section);
+  font: $font-card-section;
 }
 
 .card .card__projectTitle::before {
@@ -211,14 +210,14 @@ fieldset {
   right: 0;
   z-index: 0;
 
-  background-image: linear-gradient(to right, white, #232323 15%, var(--color-black), #232323 85%, white);
+  background-image: linear-gradient(to right, white, #232323 15%, $color-black, #232323 85%, white);
 }
 
 .card .card__projectTitle--text {
   position: relative;
   padding-inline: 0.1em;
   z-index: 1;
-  background-color: var(--color-white);
+  background-color: $color-white;
 }
 
 .card .card__author {
@@ -242,7 +241,7 @@ fieldset {
 }
 
 .card .card__name {
-  font: var(--font-card-title);
+  font: $font-card-title;
   margin-bottom: .2rem;
 }
 
@@ -251,7 +250,7 @@ fieldset {
 }
 
 .card .card__slogan {
-  font: var(--font-card-subtitle);
+  font: $font-card-subtitle;
   margin-top: -.2rem;
   margin-bottom: .8rem;
 }
@@ -270,7 +269,7 @@ fieldset {
 }
 
 .card .card__technologies {
-  font: var(--font-card-tech);
+  font: $font-card-tech;
 }
 
 
@@ -282,11 +281,11 @@ fieldset {
 
   box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
   border: solid 1px rgba(0, 0, 0, 0);
-  background-image: radial-gradient(circle at 50% 50%, var(--color-dusk), #211e2e 92%);
+  background-image: radial-gradient(circle at 50% 50%, $color-dusk, #211e2e 92%);
 }
 
 .addForm .title {
-  font: var(--font-title-biggest);
+  font: $font-title-biggest;
   margin-block: 18px;
 }
 
@@ -298,7 +297,7 @@ fieldset {
   border: solid 2px transparent;
   
 
-  font: var(--font-title-medium);
+  font: $font-title-medium;
   text-align: center;
 }
 
@@ -310,7 +309,7 @@ fieldset {
   margin-bottom: -2px;
   border-radius: inherit;
   background-color: transparent;
-  background-image: linear-gradient(to left, transparent, #343045 25%, #c0b7e8 45%, var(--color-dark-lilac) 65%, #343045 75%, transparent );
+  background-image: linear-gradient(to left, transparent, #343045 25%, #c0b7e8 45%, $color-dark-lilac 65%, #343045 75%, transparent );
 }
 
 .addForm .addForm__group {
@@ -324,16 +323,16 @@ fieldset {
 
   padding: 8.5px 16px 8.5px 16px;
   border-radius: 40px;
-  border: solid 2px var(--color-white);
+  border: solid 2px $color-white;
 
-  color: var(--color-white);
+  color: $color-white;
   background-color: transparent;
 
-  font: var(--font-normal);
+  font: $font-normal;
 }
 
 .addForm .addForm__input::placeholder {
-  color: var(--color-white-50);
+  color: $color-white-50;
 }
 
 .addForm .addForm__group--upload {
@@ -385,8 +384,8 @@ fieldset {
   margin-inline: auto;
   margin-block: 8px;
   padding: 5px 18px;
-  color: var(--color-white);
-  font: var(--font-button);
+  color: $color-white;
+  font: $font-button;
   text-transform: uppercase;
   text-decoration: none;
 
@@ -397,12 +396,7 @@ fieldset {
   border-image-source: linear-gradient(to bottom, #2a2a2a 0%, rgba(0, 0, 0, 0));
   border-image-slice: 1;
   border-radius: 20px;
-  background-color: var(--color-dark-lilac);
-  /*
-  background-image: linear-gradient(to bottom, var(--color-dark-lilac), var(--color-dark-lilac)), linear-gradient(to bottom, #2a2a2a 0%, rgba(0, 0, 0, 0));
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  */
+  background-color: $color-dark-lilac;
 }
 
 .button {
@@ -412,14 +406,14 @@ fieldset {
 
   margin: 8px;
   padding: 5px 18px;
-  color: var(--color-white);
-  font: var(--font-button);
+  color: $color-white;
+  font: $font-button;
   text-transform: none;
   text-decoration: none;
   text-align: center;
 
   border-radius: 40px;
-  background-image: linear-gradient(to right, var(--color-dark-lilac) -2%, #c0b7e8 98%);
+  background-image: linear-gradient(to right, $color-dark-lilac -2%, #c0b7e8 98%);
 
   cursor: pointer;
 }
@@ -431,21 +425,21 @@ fieldset {
   margin-inline: auto;
   margin-block: 8px;
   padding: 5px 18px;
-  color: var(--color-white);
-  font: var(--font-button);
+  color: $color-white;
+  font: $font-button;
   text-transform: none;
   text-decoration: none;
   text-align: center;
 
   border-radius: 40px;
   background-color: transparent;
-  background-image: linear-gradient(to right, var(--color-dark-lilac) -2%, #c0b7e8 98%);
+  background-image: linear-gradient(to right, $color-dark-lilac -2%, #c0b7e8 98%);
 
   cursor: pointer;
 }
 
 .button--large:hover {
-  border-color: var(--color-white);
+  border-color: $color-white;
 }
 
 /* ICONS */
@@ -456,7 +450,7 @@ fieldset {
   color: transparent;
   cursor: pointer;
   border-radius: 50%;
-  box-shadow: 0 0 5px 0 var(--color-greyish-brown-two);
+  box-shadow: 0 0 5px 0 $color-greyish-brown-two;
 }
 
 .icon__www {

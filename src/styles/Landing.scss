@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 
 * {
     margin: 0;
@@ -39,14 +41,18 @@
     --font-card-title: 500 1.2rem 'Poppins', sans-serif;
     --font-card-subtitle: 400 1.1rem 'Poppins', sans-serif;
     --font-card-tech: 500 1rem 'Catamaran', sans-serif;
+
+font: $font-normal; /* font-size: 10px; */
+    color: $color-white;
+
   }
   
   
   
   
   :root {
-    font: var(--font-normal); /* font-size: 10px; */
-    color: var(--color-white);
+    font: $font-normal; /* font-size: 10px; */
+    color: $color-white;
   }
 
   .main {
@@ -71,7 +77,7 @@
   
   .container {
     padding: 22px 22px 0 22px;
-    background-color: var(--color-dark);
+    background-color: $color-dark;
   }
   
   
@@ -91,13 +97,13 @@
   
   // .header .header__companyLogo {
   //   height: 31px;
-  //   color: var(--color-white);
+  //   color: $color-white;
   // }
   
   // .header .header__title {
-  //   font: var(--font-title-brand);
+  //   font: $font-title-brand;
   //   text-transform: capitalize;
-  //   color: var(--color-white);
+  //   color: $color-white;
   // }
   
   @media screen and (min-width: 768px) {
@@ -122,12 +128,12 @@
   }
   
   .intro_title {
-    font: var(--font-title-big);
+    font: $font-title-big;
     margin-bottom: 8px;
   }
   
   .intro .intro_text {
-    font: var(--font-text-big);
+    font: $font-text-big;
     text-align: center;
     margin-inline: 4rem;
     margin-bottom: 1.8rem;
@@ -158,15 +164,15 @@
     margin-inline: auto;
 
     padding: 10px 18px;
-    color: var(--color-white);
-    font: var(--font-button);
+    color: $color-white;
+    font: $font-button;
     text-transform: none;
     text-decoration: none;
     text-align: center;
   
     border-radius: 40px;
     background-color: transparent;
-    background-image: linear-gradient(to right, var(--color-dark-lilac) -2%, #c0b7e8 98%);
+    background-image: linear-gradient(to right, $color-dark-lilac -2%, #c0b7e8 98%);
   
     cursor: pointer;
   }
@@ -189,8 +195,8 @@
     margin-inline: auto;
     margin-block: 8px;
     padding: 5px 18px;
-    color: var(--color-white);
-    font: var(--font-button);
+    color: $color-white;
+    font: $font-button;
     text-transform: uppercase;
     text-decoration: none;
   
@@ -201,12 +207,7 @@
     border-image-source: linear-gradient(to bottom, #2a2a2a 0%, rgba(0, 0, 0, 0));
     border-image-slice: 1;
     border-radius: 20px;
-    background-color: var(--color-dark-lilac);
-    /*
-    background-image: linear-gradient(to bottom, var(--color-dark-lilac), var(--color-dark-lilac)), linear-gradient(to bottom, #2a2a2a 0%, rgba(0, 0, 0, 0));
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-    */
+    background-color: $color-dark-lilac;
   }
   
   .button {
@@ -216,14 +217,14 @@
   
     margin: 8px;
     padding: 5px 18px;
-    color: var(--color-white);
-    font: var(--font-button);
+    color: $color-white;
+    font: $font-button;
     text-transform: none;
     text-decoration: none;
     text-align: center;
   
     border-radius: 40px;
-    background-image: linear-gradient(to right, var(--color-dark-lilac) -2%, #c0b7e8 98%);
+    background-image: linear-gradient(to right, $color-dark-lilac -2%, #c0b7e8 98%);
   
     cursor: pointer;
   }
@@ -235,21 +236,21 @@
     margin-inline: auto;
     margin-block: 8px;
     padding: 5px 18px;
-    color: var(--color-white);
-    font: var(--font-button);
+    color: $color-white;
+    font: $font-button;
     text-transform: none;
     text-decoration: none;
     text-align: center;
   
     border-radius: 40px;
     background-color: transparent;
-    background-image: linear-gradient(to right, var(--color-dark-lilac) -2%, #c0b7e8 98%);
+    background-image: linear-gradient(to right, $color-dark-lilac -2%, #c0b7e8 98%);
   
     cursor: pointer;
   }
   
   .button--large:hover {
-    border-color: var(--color-white);
+    border-color: $color-white;
   }
   
   /* ICONS */
@@ -260,7 +261,7 @@
     color: transparent;
     cursor: pointer;
     border-radius: 50%;
-    box-shadow: 0 0 5px 0 var(--color-greyish-brown-two);
+    box-shadow: 0 0 5px 0 $color-greyish-brown-two;
   }
   
   .icon__www {
