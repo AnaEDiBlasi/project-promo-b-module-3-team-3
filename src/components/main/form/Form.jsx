@@ -25,9 +25,7 @@ const handleClick = (ev) => {
   .then ((resp) => {
     props.setProjectUrl (resp.cardURL);
    })
-  .catch((err) => {
-    setError("Hubo un error al crear el proyecto. Inténtalo de nuevo.");
-  });
+ 
 };
 
 
