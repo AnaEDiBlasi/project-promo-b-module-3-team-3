@@ -20,18 +20,18 @@ function Landing() {
 
   return (
     <>
-      <div className="container">
-        <main className="main">
-          <section className="intro">
-            <h1 className="intro_title">Proyectos molones</h1>
-            <p className="intro_text">
+      <div className="Landing_container">
+        <main className="Landing_main">
+          <section className="Landing_intro">
+            <h1 className="Landing_intro_title">Proyectos molones</h1>
+            <p className="Landing_intro_text">
               Escaparate en línea para recoger ideas a través de la tecnología.
             </p>
           </section>
-          <Link className="linkProject" to={"/form"}>
+          <Link className="Landing_linkProject" to={"/form"}>
             NUEVO PROYECTO
           </Link>
-          <section className="previewLanding">
+          <section className="Landing_previewLanding">
             <Card formData={formData} />
             <Card formData={formData} />
           </section>

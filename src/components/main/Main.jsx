@@ -30,7 +30,7 @@ function Main() {
   };
 
   return (
-    <main className="main">
+    <main className="Main_main">
       <section className="hero">
         <h2 className="title">Proyectos molones</h2>
         <p className="hero__text">
@@ -41,7 +41,7 @@ function Main() {
         </Link>
       </section>
 
-      <div className="container-card">
+      <div className="Main_container-card">
         <Preview formData={formData} />
         <Form
           changeFormData={changeFormData}

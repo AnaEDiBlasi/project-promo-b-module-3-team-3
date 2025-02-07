@@ -1,4 +1,4 @@
-import "../../../styles/main/preview/Project_Image.scss";
+import "../../../styles/main/preview/Preview.scss";
 
 function Project_Image({ image }) {
   return (

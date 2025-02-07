@@ -1,4 +1,4 @@
-import "../../../styles/main/form/Btn_Photo.scss";
+import "../../../styles/main/form/Form.scss";
 import React from "react";
 
 function Btn_Photo(props) {

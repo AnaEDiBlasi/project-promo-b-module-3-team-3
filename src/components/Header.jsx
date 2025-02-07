@@ -19,7 +19,7 @@ function Header() {
         />
         <h1 className="header__title">Proyectos Molones</h1>
       </Link>
-      <img className="logoSponsor" src={adalab} alt="Logo Adalab" />
+      <img className="Header_logoSponsor" src={adalab} alt="Logo Adalab" />
     </header>
   );
 }

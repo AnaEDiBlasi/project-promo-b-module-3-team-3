@@ -8,7 +8,7 @@ import Landing from "./Landing";
 function App() {
   return (
     <>
-      <div className="container">
+      <div className="App_container">
         <Header />
         <Routes>
           <Route path="/" element={<Landing />} />
