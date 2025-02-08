@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Preview from './preview/Preview';
 
 
+
 function Main() {
   const [ projectUrl, setProjectUrl] = useState ("");
   const [formData, setFormData] = useState({
@@ -22,9 +23,6 @@ function Main() {
     photo: avatar
    })
 
-
-   
-   const [error, setError] = useState("");
 
    const updateAvatar = (urlImage, id) => {
     setFormData({...formData, [id]: urlImage});
@@ -67,9 +65,7 @@ function Main() {
       formData = {formData} 
       projectUrl = {projectUrl} 
       setProjectUrl = {setProjectUrl}
-      error={error} 
-      setError={setError} 
-      />
+     />
     </div>
   </main>
   )

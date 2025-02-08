@@ -1,17 +1,12 @@
 import '../../../styles/App.scss';
 import Btn_Photo from './Btn_Photo';
 import api from "../../../services/api";
-import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 function Form(props) {
   const [localError, setLocalError] = useState(""); // Estado local para el error
   const [isLoading, setIsLoading] = useState(false); // Estado para la carga
 
-  useEffect(() => {
-    setLocalError(props.error); // Sincroniza el error local con el prop error
-  }, [props.error]); // Se ejecuta cuando cambia props.error
- 
   const handleChangeInput = (ev) =>{
     const input = ev.target.id;
     const value = ev.target.value;
@@ -19,30 +14,37 @@ function Form(props) {
     setLocalError(""); // Limpia el error al escribir
   }
 
-const handleClick = (ev) => {
-  ev.preventDefault ();
-  if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
-    setLocalError("Por favor, completa todos los campos obligatorios."); 
- 
-    return;
+  const handleClick = (ev) => {
+    ev.preventDefault();
+    const { name, repo, demo, autor, desc } = props.formData; 
+    if (!name || !repo || !demo || !autor || !desc) { 
+      setLocalError("Por favor, completa todos los campos obligatorios.");
+      return;
+    }
 
-  }
+    setLocalError(""); // Limpia el error si la validación pasa
+    setIsLoading(true); // Indica que la llamada está en curso
+
   
-
-  setLocalError(""); // Limpia el error si la validación pasa
-  setIsLoading(true); // Indica que la llamada está en curso
-
-  api (props.formData)
-  .then ((resp) => {
-    props.setProjectUrl (resp.cardURL);
-   })
-   .catch((err) => {
-    console.error("Error al crear el proyecto:", err);
-    setLocalError("Hubo un error al crear el proyecto. Inténtalo de nuevo.");
-  })
-  .finally(() => {
-    setIsLoading(false); // Indica que la llamada ha terminado
-  });
+    api(props.formData)
+    .then((resp) => {
+      console.log("✅ Respuesta de la API en Form.js:", resp);
+      if (resp.success) {
+        props.setProjectUrl(resp.cardURL);
+      } else {
+        // Intenta obtener el mensaje de error específico de la API
+        const errorMessage = resp.error || "Error desconocido en la API";
+        throw new Error(errorMessage); // Lanza un error con el mensaje específico
+      }
+    })
+    .catch((err) => {
+      console.error("❌ Error en el formulario:", err);
+      // Muestra el mensaje de error específico o uno genérico
+      setLocalError(err.message || "Hubo un error al crear el proyecto. Inténtalo de nuevo.");
+    })
+    .finally(() => {
+      setIsLoading(false);
+    });
       
 };
 
@@ -71,11 +73,21 @@ const handleClick = (ev) => {
 
     <fieldset className="addForm__group--upload">
       <div>
-        <Btn_Photo  htmlFor="image" name="image" text="Subir foto del proyecto" id= "image" updateAvatar={props.updateAvatar}/>
+        <Btn_Photo  
+        htmlFor="image" 
+        name="image" 
+        text="Subir foto del proyecto" 
+        id= "image" 
+        updateAvatar={props.updateAvatar}/>
         <p className="form-message">* Tamaño máximo de las fotos: 25MB</p>
       </div>
       <div>
-        <Btn_Photo  htmlFor="photo" name="photo" text="Subir foto de la autora" id= "photo" updateAvatar={props.updateAvatar}/>
+        <Btn_Photo  
+        htmlFor="photo" 
+        name="photo" 
+        text="Subir foto de la autora" 
+        id= "photo" 
+        updateAvatar={props.updateAvatar}/>
         <p className="form-message">* Tamaño máximo de las fotos: 5MB</p>
       </div>
 
@@ -87,10 +99,9 @@ const handleClick = (ev) => {
           {isLoading ? "Creando..." : "Crear proyecto"}
         </button>
         {localError && <p className="error-message">{localError}</p>} {/* Usa localError */}
-        {props.projectUrl && <a href={props.projectUrl}> Ver tarjeta</a>}
-    </fieldset>
-    
-  </form>
+        {props.projectUrl && <a href={props.projectUrl}>Ver tarjeta</a>}
+      </fieldset>
+    </form>
     
   )
 }
