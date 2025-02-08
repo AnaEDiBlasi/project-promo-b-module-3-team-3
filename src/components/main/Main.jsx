@@ -24,7 +24,7 @@ function Main() {
    })
 
 
-   const updateAvatar = (urlImage, id) => {
+   const updateAvatar = (urlImage, id,file) => {
     setFormData({...formData, [id]: urlImage});
     const maxSize = id === 'image' ? 25000 * 1024 : 5000 * 1024; // Tamaño máximo según el ID
 
@@ -47,7 +47,20 @@ function Main() {
     setFormData({...formData, [input]: value})
    }
 
-   
+   const resetForm = () => {
+    setFormData({
+      name: "",
+      slogan: "",
+      technologies: "",
+      repo: "",
+      demo: "",
+      desc: "",
+      autor: "",
+      job: "",
+      image: ebookExample,
+      photo: avatar
+    });
+  };
 
   return (
   <main className="main">
@@ -65,6 +78,7 @@ function Main() {
       formData = {formData} 
       projectUrl = {projectUrl} 
       setProjectUrl = {setProjectUrl}
+      resetForm = {resetForm}
      />
     </div>
   </main>

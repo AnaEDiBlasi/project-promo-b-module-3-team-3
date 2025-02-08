@@ -8,7 +8,9 @@ function Card(props) {
 
     <div className="card__author">
       <div className="card__authorPhoto">
-        <img className="card__authorPhoto" src={props.formData.photo}/>
+        <img 
+        className="card__authorPhoto" 
+        src={props.formData.photo}/>
       </div>
       <p className="card__job"> {props.formData.job || "Full stack Developer"}
       
