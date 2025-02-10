@@ -17,13 +17,13 @@ function Form(props) {
 
 const handleClick = (ev) => {
   ev.preventDefault ();
-  if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
+ if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
     setLocalError("Por favor, completa todos los campos obligatorios."); 
  
     return;
 
   }
-  
+  console.log(props.formData)
   setLocalError(""); // Limpia el error si la validación pasa
   setIsLoading(true); // Indica que la llamada está en curso
 
@@ -34,6 +34,7 @@ const handleClick = (ev) => {
       if (resp.success) {
         props.setProjectUrl(resp.cardURL);
       } else {
+        console.log (resp);
         throw new Error(resp.error || "Error desconocido en la API");
       }
     })
@@ -41,9 +42,7 @@ const handleClick = (ev) => {
       console.error("❌ Error en el formulario:", err);
       setLocalError(err.message || "Hubo un error al crear el proyecto. Inténtalo de nuevo.");
     })
-    .finally(() => {
-      setIsLoading(false);
-    });
+   
       
 };
 
@@ -93,7 +92,7 @@ const handleClick = (ev) => {
       <button
           className="button--large"
           onClick={handleClick}
-          disabled={isLoading || !props.formData.name || !props.formData.repo || !props.formData.demo || !props.formData.autor || !props.formData.desc}
+          
         >
           {isLoading ? "Creando..." : "Crear proyecto"}
         </button>

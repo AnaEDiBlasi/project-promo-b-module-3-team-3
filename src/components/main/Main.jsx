@@ -24,23 +24,9 @@ function Main() {
    })
 
 
-   const updateAvatar = (urlImage, id,file) => {
+   const updateAvatar = (urlImage, id,) => {
     setFormData({...formData, [id]: urlImage});
-    const maxSize = id === 'image' ? 25000 * 1024 : 5000 * 1024; // Tamaño máximo según el ID
-
-    if (file && file.size > maxSize) {
-      alert(`La imagen es demasiado grande. El tamaño máximo permitido es ${maxSize / 1024}KB.`);
-      return;
-    }
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, [id]: reader.result });
-      };
-      reader.readAsDataURL(file);
-    }
-
+    
    }
    
   const changeFormData = (input, value) =>{
