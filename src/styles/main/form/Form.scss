@@ -1,0 +1,101 @@
+@import "../../variables.scss";
+
+fieldset {
+  border: 0;
+}
+
+.addForm {
+  margin: 0 20px 5px 20px;
+
+  box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border: solid 1px rgba(0, 0, 0, 0);
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    $color-dusk,
+    #211e2e 92%
+  );
+}
+
+.addForm .title {
+  font: $font-title-biggest;
+  margin-block: 18px;
+}
+
+.addForm .addForm__title {
+  position: relative;
+  background-clip: padding-box;
+  padding-block: 0.4rem;
+  margin-block: 0.5rem;
+  border: solid 2px transparent;
+
+  font: $font-title-medium;
+  text-align: center;
+}
+
+.addForm .addForm__title:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  margin-bottom: -2px;
+  border-radius: inherit;
+  background-color: transparent;
+  background-image: linear-gradient(
+    to left,
+    transparent,
+    #343045 25%,
+    #c0b7e8 45%,
+    $color-dark-lilac 65%,
+    #343045 75%,
+    transparent
+  );
+}
+
+.addForm .addForm__group {
+  margin-bottom: 25px;
+}
+
+.addForm .addForm__input {
+  display: block;
+  width: calc(100% - 20px);
+  margin: 10px auto;
+
+  padding: 8.5px 16px 8.5px 16px;
+  border-radius: 40px;
+  border: solid 2px $color-white;
+
+  color: $color-white;
+  background-color: transparent;
+
+  font: $font-normal;
+}
+
+.addForm .addForm__input::placeholder {
+  color: $color-white-50;
+}
+
+.addForm .addForm__group--upload {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.addForm .addForm__hidden {
+  display: none;
+}
+
+.addForm .addForm__2col {
+  width: calc(100% - 20px);
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.addForm .addForm__2col .addForm__input {
+  width: calc((100% - 0.2rem) / 2);
+  margin: 0;
+}

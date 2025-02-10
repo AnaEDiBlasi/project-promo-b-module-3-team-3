@@ -1,0 +1,24 @@
+@import "./variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font: $font-normal; /* font-size: 10px; */
+  color: $color-white;
+}
+
+@media screen and (min-width: 420px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  :root {
+    font-size: 14px;
+  }
+}

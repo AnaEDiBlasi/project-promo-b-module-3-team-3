@@ -1,10 +1,10 @@
-import '../styles/App.scss';
+import '../styles/Footer.scss';
 import adalab from '../images/adalab.png';
 
 function Footer() {
   return (
  <footer className="footer">
-  <img className="logoSponsor" src={adalab} alt="Logo Adalab"/>
+  <img className="Footer_logoSponsor" src={adalab} alt="Logo Adalab"/>
 </footer>
   )
 }

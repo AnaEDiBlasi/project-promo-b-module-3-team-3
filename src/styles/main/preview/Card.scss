@@ -1,0 +1,126 @@
+@import '../../variables.scss';
+
+.preview .card {
+  margin-inline: 20px;
+  transform: translateY(-45px);
+  
+  @media screen and (min-width: 768px){
+    width: 75%;
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  color: $color-black;
+  font: $font-card-text;
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(to bottom, $color-white 0%, rgba(0, 0, 0, 0));
+  border-image-slice: 1;
+  background-image: linear-gradient(to bottom, $color-white, $color-white), linear-gradient(to bottom, $color-white 0%, rgba(0, 0, 0, 0));
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+
+  @media screen and (min-width: 768px){
+    width: 50%;
+  }
+}
+
+.card .card__projectTitle {
+  grid-column: 2;
+  position: relative;
+  margin: 15px 10px 1rem 0;
+  text-align: center;
+  text-transform: capitalize;
+  font: $font-card-section;
+}
+
+.card .card__projectTitle::before {
+  content: '';
+  position: absolute;
+  top: calc( 50% - 1px );
+  bottom: calc( 50% - 1px );
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-image: linear-gradient(to right, white, #232323 15%, $color-black, #232323 85%, white);
+}
+
+.card .card__projectTitle--text {
+  position: relative;
+  padding-inline: 0.1em;
+  z-index: 1;
+  background-color: $color-white;
+}
+
+.card .card__author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card .card__authorPhoto {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 0.8rem;
+}
+
+.card .card__job {
+  margin-bottom: 0.2rem;
+}
+
+.card .card__name {
+  font: $font-card-title;
+  margin-bottom: .2rem;
+}
+
+.card .card__project {
+  margin-right: 10px;
+}
+
+.card .card__slogan {
+  font: $font-card-subtitle;
+  margin-top: -.2rem;
+  margin-bottom: .8rem;
+}
+
+.card .card__descriptionTitle {
+  font-weight: inherit;
+  text-transform: capitalize;
+}
+
+.card .card__technicalInfo {
+  display: grid;
+  grid-template-columns: 1fr 2rem 2rem;
+  gap: .5em;
+  margin-block: 1.8rem;
+}
+
+.card .card__technologies {
+  font: $font-card-tech;
+}
+
+.icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  color: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 0 $color-greyish-brown-two;
+}
+
+.icon__www {
+  background-image: url('../../../images/icons/globe-solid.svg');
+}
+
+.icon__github {
+  background-image: url('../../../images/icons/github.svg');
+}

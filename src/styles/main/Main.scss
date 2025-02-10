@@ -1,0 +1,53 @@
+@import "../variables.scss";
+
+.Main_main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .Main_main {
+    max-width: 980px;
+    margin-inline: auto;
+    display: flex;
+    grid-template-columns: 6fr 5fr;
+    gap: 2rem;
+  }
+}
+
+.hero {
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    grid-column: span 2;
+  }
+}
+
+.hero .title {
+  font: $font-title-big;
+  margin-bottom: 8px;
+}
+
+.hero .hero__text {
+  font: $font-text-big;
+  text-align: center;
+  margin-inline: 4rem;
+  margin-bottom: 1.8rem;
+}
+
+.Main_container-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 45px;
+  @media screen and (min-width: 1020px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 60px;
+  }
+}
