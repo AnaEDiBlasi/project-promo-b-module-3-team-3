@@ -8,7 +8,9 @@ function Card(props) {
 
     <div className="card__author">
       <div className="card__authorPhoto">
-        <img className="card__authorPhoto" src={props.formData.photo}/>
+        <img 
+        className="card__authorPhoto" 
+        src={props.formData.photo}/>
       </div>
       <p className="card__job"> {props.formData.job || "Full stack Developer"}
       
@@ -27,7 +29,7 @@ function Card(props) {
     
         <a className="icon icon__www" href={`https://${props.formData.demo}`} title="Haz click para ver el proyecto online"> Web link
         </a>
-        <a className="icon icon__github" href={`https://github.com/${props.formData.repo}`} title="Haz click para ver el código del proyecto">GitHub link
+        <a className="icon icon__github" href={`https://${props.formData.repo}`} title="Haz click para ver el código del proyecto">GitHub link
         </a>
       </div>
     </div>

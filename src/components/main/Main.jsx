@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Preview from './preview/Preview';
 
 
+
 function Main() {
   const [ projectUrl, setProjectUrl] = useState ("");
   const [formData, setFormData] = useState({
@@ -22,15 +23,30 @@ function Main() {
     photo: avatar
    })
 
-   const updateAvatar = (urlImage, id) => {
+
+   const updateAvatar = (urlImage, id,) => {
     setFormData({...formData, [id]: urlImage});
+    
    }
    
   const changeFormData = (input, value) =>{
     setFormData({...formData, [input]: value})
    }
 
-   
+   const resetForm = () => {
+    setFormData({
+      name: "",
+      slogan: "",
+      technologies: "",
+      repo: "",
+      demo: "",
+      desc: "",
+      autor: "",
+      job: "",
+      image: ebookExample,
+      photo: avatar
+    });
+  };
 
   return (
   <main className="main">
@@ -48,7 +64,8 @@ function Main() {
       formData = {formData} 
       projectUrl = {projectUrl} 
       setProjectUrl = {setProjectUrl}
-      />
+      resetForm = {resetForm}
+     />
     </div>
   </main>
   )

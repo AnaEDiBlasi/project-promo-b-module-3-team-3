@@ -7,10 +7,12 @@ function Form(props) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  
   const handleChangeInput = (ev) =>{
     const input = ev.target.id;
     const value = ev.target.value;
     props.changeFormData(input, value);
+    setLocalError(""); // Limpia el error al escribir
   }
 
 const handleClick = (ev) => {
@@ -36,6 +38,7 @@ const handleClick = (ev) => {
   return (
     <form className="addForm">
     <h2 className="title">Información</h2>
+    
     <fieldset className="addForm__group">
       <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
       <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" onChange={handleChangeInput}/>
@@ -55,12 +58,37 @@ const handleClick = (ev) => {
     </fieldset>
 
     <fieldset className="addForm__group--upload">
-      <Btn_Photo  htmlFor="image" name="image" text="Subir foto del proyecto" id= "image" updateAvatar={props.updateAvatar}/>
+      <div>
+        <Btn_Photo  
+        htmlFor="image" 
+        name="image" 
+        text="Subir foto del proyecto" 
+        id= "image" 
+        updateAvatar={props.updateAvatar}/>
+        <p className="form-message">* Tamaño máximo de las fotos: 25MB</p>
+      </div>
+      <div>
+        <Btn_Photo  
+        htmlFor="photo" 
+        name="photo" 
+        text="Subir foto de la autora" 
+        id= "photo" 
+        updateAvatar={props.updateAvatar}/>
+        <p className="form-message">* Tamaño máximo de las fotos: 5MB</p>
+      </div>
 
-      <Btn_Photo  htmlFor="photo" name="photo" text="Subir foto de la autora" id= "photo" updateAvatar={props.updateAvatar}/>
-
-      <button className="button--large" onClick={handleClick} >Crear proyecto</button>
-      {props.projectUrl ? <a href= {props.projectUrl}>Ver tarjeta</a> : null }
+      <button
+          className="button--large"
+          onClick={handleClick}
+          
+        >
+          {isLoading ? "Creando..." : "Crear proyecto"}
+        </button>
+         <button type="reset" className="button" onClick={props.resetForm}>
+          Resetear formulario
+        </button>
+        {localError && <p className="error-message">{localError}</p>} {/* Usa localError */}
+        {props.projectUrl && <a className="button" href={props.projectUrl}> Ver tarjeta</a>}
     </fieldset>
     
   </form>
