@@ -137,10 +137,10 @@ function Form(props) {
           
         >
         {isLoading ? "Creando..." : "Crear proyecto"}
-        </button>
-         <button type="reset" className="button" onClick={props.resetForm}>
+      </button>
+      <button type="reset" className="button" onClick={props.resetForm}>
           Resetear formulario
-        </button>
+      </button>
         {props.projectUrl && <a className="button" href={props.projectUrl}> Ver tarjeta</a>}
     </fieldset>
     
