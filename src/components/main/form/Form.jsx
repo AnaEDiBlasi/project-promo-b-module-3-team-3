@@ -2,14 +2,34 @@ import '../../../styles/App.scss';
 import Btn_Photo from './Btn_Photo';
 import api from "../../../services/api";
 import { useState } from 'react';
+import ebookExample from '../../../images/ebook-example.jpg';
+import avatar from '../../../images/avatar.webp';
 
 function Form(props) {
   const [localError, setLocalError] = useState(""); // Estado local para el error
   const [isLoading, setIsLoading] = useState(false); // Estado para la carga
 
-  
+  const resetForm = () => {
+      props.setFormData({
+        name: "",
+        slogan: "",
+        technologies: "",
+        repo: "",
+        demo: "",
+        desc: "",
+        autor: "",
+        job: "",
+        image: ebookExample,
+        photo: avatar,
+        });
+        setLocalError("");
+        setIsLoading (false);
+        
+    };
+
+
   const handleChangeInput = (ev) =>{
-    const input = ev.target.id;
+    const input = ev.target.name;
     const value = ev.target.value;
     props.changeFormData(input, value);
     setLocalError(""); // Limpia el error al escribir
@@ -92,14 +112,14 @@ const handleClick = (ev) => {
       <button
           className="button--large"
           onClick={handleClick}
-          
+          disabled={isLoading}
         >
           {isLoading ? "Creando..." : "Crear proyecto"}
         </button>
-         <button type="reset" className="button" onClick={props.resetForm}>
+         <button type="reset" className="button" onClick={resetForm}>
           Resetear formulario
         </button>
-        {localError && <p className="error-message">{localError}</p>} {/* Usa localError */}
+        {localError && <p className="error-message">{localError}</p>} 
         {props.projectUrl && <a className="button" href={props.projectUrl}> Ver tarjeta</a>}
     </fieldset>
     

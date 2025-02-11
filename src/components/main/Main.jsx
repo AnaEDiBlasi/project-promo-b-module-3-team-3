@@ -23,7 +23,6 @@ function Main() {
     photo: avatar
    })
 
-
    const updateAvatar = (urlImage, id,) => {
     setFormData({...formData, [id]: urlImage});
     
@@ -32,21 +31,6 @@ function Main() {
   const changeFormData = (input, value) =>{
     setFormData({...formData, [input]: value})
    }
-
-   const resetForm = () => {
-    setFormData({
-      name: "",
-      slogan: "",
-      technologies: "",
-      repo: "",
-      demo: "",
-      desc: "",
-      autor: "",
-      job: "",
-      image: ebookExample,
-      photo: avatar
-    });
-  };
 
   return (
   <main className="main">
@@ -64,7 +48,8 @@ function Main() {
       formData = {formData} 
       projectUrl = {projectUrl} 
       setProjectUrl = {setProjectUrl}
-      resetForm = {resetForm}
+      setFormData = {setFormData}
+      
      />
     </div>
   </main>
