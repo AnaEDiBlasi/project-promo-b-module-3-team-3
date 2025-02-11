@@ -1,11 +1,11 @@
-import "../../../styles/main/form/Form.scss";
-import { useState } from "react";
+import '../../../styles/App.scss';
+import Btn_Photo from './Btn_Photo';
 import api from "../../../services/api";
-import Btn_Photo from "./Btn_Photo";
+import { useState } from 'react';
 
 function Form(props) {
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [localError, setLocalError] = useState(""); // Estado local para el error
+  const [isLoading, setIsLoading] = useState(false); // Estado para la carga
 
   
   const handleChangeInput = (ev) =>{
@@ -15,101 +15,59 @@ function Form(props) {
     setLocalError(""); // Limpia el error al escribir
   }
 
-  const handleClick = (ev) => {
-    ev.preventDefault();
-    setIsLoading(true);
-    setError("");
+const handleClick = (ev) => {
+  ev.preventDefault ();
+ if (!props.formData.name || !props.formData.repo || !props.formData.demo) {
+    setLocalError("Por favor, completa todos los campos obligatorios."); 
+ 
+    return;
 
-    api(props.formData)
-      .then((resp) => {
+  }
+  console.log(props.formData)
+  setLocalError(""); // Limpia el error si la validación pasa
+  setIsLoading(true); // Indica que la llamada está en curso
+
+  api(props.formData)
+    .then((resp) => {
+      console.log("✅ Respuesta de la API en Form.js:", resp);
+      
+      if (resp.success) {
         props.setProjectUrl(resp.cardURL);
-      })
-      .catch((err) => {
-        console.error("Error al crear proyecto:", err);
-        setError("Error al crear proyecto. Inténtalo de nuevo.");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
+      } else {
+        console.log (resp);
+        throw new Error(resp.error || "Error desconocido en la API");
+      }
+    })
+    .catch((err) => {
+      console.error("❌ Error en el formulario:", err);
+      setLocalError(err.message || "Hubo un error al crear el proyecto. Inténtalo de nuevo.");
+    })
+   
+      
+};
+
 
   return (
     <form className="addForm">
-      <h2 className="title">Información</h2>
-      <fieldset className="addForm__group">
-        <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
-        <input
-          className="addForm__input"
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Nombre del proyecto"
-          onChange={handleChangeInput}
-        />
-        <input
-          className="addForm__input"
-          type="text"
-          name="slogan"
-          id="slogan"
-          placeholder="Slogan"
-          onChange={handleChangeInput}
-        />
-        <div className="addForm__2col">
-          <input
-            className="addForm__input"
-            type="url"
-            name="repo"
-            id="repo"
-            placeholder="Repositorio"
-            onChange={handleChangeInput}
-          />
-          <input
-            className="addForm__input"
-            type="url"
-            name="demo"
-            id="demo"
-            placeholder="Demo"
-            onChange={handleChangeInput}
-          />
-        </div>
-        <input
-          className="addForm__input"
-          type="text"
-          name="technologies"
-          id="technologies"
-          placeholder="Tecnologías"
-          onChange={handleChangeInput}
-        />
-        <textarea
-          className="addForm__input"
-          type="text"
-          name="desc"
-          id="desc"
-          placeholder="Descripción"
-          rows="5"
-          onChange={handleChangeInput}
-        ></textarea>
-      </fieldset>
+    <h2 className="title">Información</h2>
+    
+    <fieldset className="addForm__group">
+      <legend className="addForm__title">Cuéntanos sobre el proyecto</legend>
+      <input className="addForm__input" type="text" name="name" id="name" placeholder="Nombre del proyecto" onChange={handleChangeInput}/>
+      <input className="addForm__input" type="text" name="slogan" id="slogan" placeholder="Slogan" onChange={handleChangeInput} />
+      <div className="addForm__2col">
+        <input className="addForm__input" type="url" name="repo" id="repo" placeholder="Repositorio"onChange={handleChangeInput}/>
+        <input className="addForm__input" type="url" name="demo" id="demo" placeholder="Demo"onChange={handleChangeInput}/>
+      </div>         
+      <input className="addForm__input" type="text" name="technologies" id="technologies" placeholder="Tecnologías"onChange={handleChangeInput}/>
+      <textarea className="addForm__input" type="text" name="desc" id="desc" placeholder="Descripción" rows="5" onChange={handleChangeInput}></textarea>
+    </fieldset>
 
-      <fieldset className="addForm__group">
-        <legend className="addForm__title">Cuéntanos sobre la autora</legend>
-        <input
-          className="addForm__input"
-          type="text"
-          name="autor"
-          id="autor"
-          placeholder="Nombre"
-          onChange={handleChangeInput}
-        />
-        <input
-          className="addForm__input"
-          type="text"
-          name="job"
-          id="job"
-          placeholder="Trabajo"
-          onChange={handleChangeInput}
-        />
-      </fieldset>
+    <fieldset className="addForm__group">
+      <legend className="addForm__title">Cuéntanos sobre la autora</legend>
+      <input className="addForm__input" type="text" name="autor" id="autor" placeholder="Nombre" onChange={handleChangeInput} />
+      <input className="addForm__input" type="text" name="job" id="job" placeholder="Trabajo" onChange={handleChangeInput} />
+    </fieldset>
 
     <fieldset className="addForm__group--upload">
       <div>
@@ -136,11 +94,12 @@ function Form(props) {
           onClick={handleClick}
           
         >
-        {isLoading ? "Creando..." : "Crear proyecto"}
-      </button>
-      <button type="reset" className="button" onClick={props.resetForm}>
+          {isLoading ? "Creando..." : "Crear proyecto"}
+        </button>
+         <button type="reset" className="button" onClick={props.resetForm}>
           Resetear formulario
-      </button>
+        </button>
+        {localError && <p className="error-message">{localError}</p>} {/* Usa localError */}
         {props.projectUrl && <a className="button" href={props.projectUrl}> Ver tarjeta</a>}
     </fieldset>
     
@@ -149,4 +108,4 @@ function Form(props) {
   )
 }
 
-export default Form;
+export default Form
